@@ -30,10 +30,7 @@ namespace TimeManagementBooking
             {
                 throw new ArgumentOutOfRangeException("You can book for 9hrs only");
             }
-            if(i > 9)
-            {
-                throw new ArgumentOutOfRangeException("You can book for 9hrs only");
-            }
+            
 
             return true;
 
