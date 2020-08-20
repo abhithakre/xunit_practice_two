@@ -67,8 +67,4 @@ jobs:
           echo "Sha: ${{ steps.gitversion.outputs.sha }}"
       - name: Build the docker image
         run: docker build . --file Dockerfile --tag sysdiglabs/dotnet-dockerimage:latest
-      - name: Scan image
-        uses: sysdiglabs/scan-action@v1
-        with:
-          image-tag: "sysdiglabs/dotnet-dockerimage:latest"
-          sysdig-secure-token: ${{ secrets.SYSDIG_SECURE_TOKEN }}
+   
