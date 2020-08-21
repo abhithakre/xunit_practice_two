@@ -56,10 +56,11 @@ jobs:
         
       - name: test sonargate
         uses: actions/checkout@v1
+        id: get_seuritygate_status
         with:
               url: 'https://sonarcloud.io/api/qualitygates/project_status?projectKey=abhithakre_xunit_practice_two'
               method: 'GET'
-      - run: "echo latest release: ${{ steps.get_latest_release.outputs.data.projectStatus.status }}"      
+      - run: "echo latest release: ${{ steps.get_seuritygate_status.outputs.data.projectStatus.status }}"      
 
           
       - name: Install git version
