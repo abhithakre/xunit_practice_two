@@ -44,7 +44,7 @@ jobs:
     - name: Test
       uses: skx/github-action-tester@master
       with:
-        script: .\get-sonarqube-quality-gate-status.ps1 -SonarServerName https://sonarcloud.io -SonarProjectKey ${{ secrets.PROJECT_KEY }} -SonarToken ${{ secrets.SONAR_TOKEN }}
+        script: ./get-sonarqube-quality-gate-status.ps1 -SonarServerName https://sonarcloud.io -SonarProjectKey ${{ secrets.PROJECT_KEY }} -SonarToken ${{ secrets.SONAR_TOKEN }}
     
   sonar_scanner:
     needs: build_test_version
