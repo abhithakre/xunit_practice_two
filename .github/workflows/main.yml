@@ -35,7 +35,17 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
-  
+      
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Test
+      uses: skx/github-action-tester@master
+      with:
+        script: .\get-sonarqube-quality-gate-status.ps1 -SonarServerName https://sonarcloud.io -SonarProjectKey ${{ secrets.PROJECT_KEY }} -SonarToken ${{ secrets.SONAR_TOKEN }}
+    
   sonar_scanner:
     needs: build_test_version
     runs-on: ubuntu-latest
