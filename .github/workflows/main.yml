@@ -51,6 +51,7 @@ jobs:
           dotnet build ./xunit_practice_two.sln
           dotnet test ./xunit_practice_two.sln
           packages\xunit.runner.console.2.2.0\tools\xunit.console xunit_practice_two\bin\Debug\xunit_practice_two.dll -xml XUnitResults.xml
+          packages\xunit.runner.console.2.1.0\tools\xunit.console.exe XUnitProject1\bin\Debug\XUnitProject1.dll -xml ./XUnitResults.xml
           dotnet sonarscanner end         
         env:
           GITHUB_TOKEN: ${{ secrets.MYGITHUB_TOKEN }}
