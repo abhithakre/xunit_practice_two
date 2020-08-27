@@ -35,7 +35,14 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --collect:"XPlat Code Coverage"
-  
+      
+  lintAllTheThings:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: yaml-lint
+      uses: actions/checkout@v2
+
   sonar_scanner:
     needs: build_test_version
     runs-on: ubuntu-latest
