@@ -45,6 +45,8 @@ jobs:
 
       - name: Checking MSBuild
         run: |
+          dotnet tool install — global coverlet.console. //global
+          dotnet add package coverlet.msbuild //local          
           dotnet tool install --global dotnet-sonarscanner
           dotnet test TimeManagementUT/TimeManagementUT.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
           dotnet build-server shutdown
